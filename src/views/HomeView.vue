@@ -1,34 +1,23 @@
 <template>
   <!-- Links -->
   <a href="https://x.com/">
-    <img src="@/assets/twitter.png" class="w-20 h-20 absolute max-h-screen top-44 left-[560px] socials" />
+    <img src="@/assets/twitter.jpeg" class=" absolute max-h-screen top-[180px] left-[480px] socials" />
   </a>
   <a href="https://telegram.org/">
-    <img src="@/assets/tg.png" class="w-20 h-20 absolute max-h-screen top-44 left-[700px] socials" />
-  </a>
-  <a href="https://pump.fun/">
-    <img src="@/assets/pf (1).png" class="w-20 h-20 absolute max-h-screen top-44 left-[840px] socials" />
+    <img src="@/assets/telegram.jpeg" class="absolute max-h-screen top-[240px] left-[480px] socials" />
   </a>
 
-  <!-- Clickable images for background change -->
-  <img 
-    src="@/assets/bg2.gif" 
-    class="w-20 h-20 absolute max-h-screen top-44 left-[980px] socials" 
-    @click="changeBackground('/src/assets/bg2.gif')" 
-    alt="Background 2" 
-  />
-  <img 
-    src="@/assets/bg3.gif" 
-    class="w-20 h-20 absolute max-h-screen top-44 left-[1120px] socials" 
-    @click="changeBackground('/src/assets/bg3.gif')" 
-    alt="Background 3" 
-  />
-  <img 
-    src="@/assets/bg.gif" 
-    class="w-20 h-20 absolute max-h-screen top-44 left-[1260px] socials" 
-    @click="changeBackground('/src/assets/bg.gif')" 
-    alt="Background Default" 
-  />
+
+  <a href="https://pump.fun/">
+    <img src="@/assets/dexScreener.jpeg" class=" absolute max-h-screen top-[300px] left-[480px] socials" />
+  </a>
+   <!--  <a href="https://pump.fun/">
+    <img src="@/assets/pf (1).png" class="w-20 h-20 absolute max-h-screen top-44 left-[840px] socials" />
+
+   
+  </a> -->
+
+
 
   <!-- Background container -->
   <div class="min-h-screen bg-no-repeat bg-cover" :style="{ backgroundImage: `url(${currentBackground})` }"></div>
@@ -41,18 +30,34 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import bgChange from '@/assets/bg1.gif';
+import bgDefault from '@/assets/bg2.gif';
 
 // Reactive variable for the background image
-const currentBackground = ref('/src/assets/bg.gif');
+const currentBackground = ref(bgDefault);
+
+// Function to preload an image
+function preloadImage(url: string) {
+  return new Promise<void>((resolve) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = () => resolve();
+  });
+}
 
 // Function to change the background
-function changeBackground(imageUrl: string) {
+async function changeBackground(imageUrl: string) {
+  await preloadImage(imageUrl);
   currentBackground.value = imageUrl;
 }
+
+onMounted(() => {
+  document.addEventListener('click', () => {
+    changeBackground(bgChange);
+  });
+});
 </script>
-
-
 
 <style>
 html {
@@ -74,4 +79,5 @@ body {
   width: 100vw;
 }
 </style>
+
 
