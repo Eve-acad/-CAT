@@ -1,20 +1,20 @@
 <template>
   <!-- Links -->
   <a href="https://x.com/">
-    <img src="@/assets/twitter.jpeg" class=" absolute max-h-screen top-[180px] left-[480px] socials" />
+    <img src="@/assets/twitter.png" class=" absolute max-h-screen top-[180px] left-[480px] socials" />
   </a>
   <a href="https://telegram.org/">
-    <img src="@/assets/telegram.jpeg" class="absolute max-h-screen top-[240px] left-[480px] socials" />
+    <img src="@/assets/Telegram.png" class="absolute max-h-screen top-[240px] left-[480px] socials" />
   </a>
 
 
   <a href="https://pump.fun/">
-    <img src="@/assets/dexScreener.jpeg" class=" absolute max-h-screen top-[300px] left-[480px] socials" />
+    <img src="@/assets/DexScreener.png" class=" absolute max-h-screen top-[300px] left-[480px] socials" />
   </a>
    <!--  <a href="https://pump.fun/">
     <img src="@/assets/pf (1).png" class="w-20 h-20 absolute max-h-screen top-44 left-[840px] socials" />
 
-   
+
   </a> -->
 
 
